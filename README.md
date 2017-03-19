@@ -1,9 +1,12 @@
-# C-Drive
-This repository contains a useful folder structure with scripts that will prove useful when developing.
+# DEV-Drive
+This repository contains scripts that install various dev tools, using a single command
 
 ## Usage
 1. Clone this folder into any folder, **except directly into your local drive root**.
-2. Then Copy over any of the desired folders, directly into the local drive root.
+2. Then run the following command
+```
+$ install
+```
 
 ## Contributing
 1. Fork it!
