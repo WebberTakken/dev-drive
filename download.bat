@@ -21,6 +21,7 @@ echo download.bat path/to/resource path/to/destination
 goto Exit
 
 :Download
+Set ErrorLevel=
 "%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" -command "exit $PSVersionTable.PSVersion.Major"
 set PowerShellVer=%ErrorLevel%
 set ErrorLevel=

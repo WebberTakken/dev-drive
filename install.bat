@@ -1,8 +1,11 @@
 @Echo Off
 
+::Refresh PATH Environment Variable
+Call Userpath Refresh > Nul
+
 ::PHP
 :DownloadPhp
-Call download http://windows.php.net/downloads/releases/php-7.1.3-nts-Win32-VC14-x86.zip php.zip
+Call Download http://windows.php.net/downloads/releases/php-7.1.3-nts-Win32-VC14-x86.zip php.zip
 :UnzipPhp
 CScript Unzip.vbs php.zip php
 :UseProductionIni
@@ -10,9 +13,9 @@ Copy /y "%~dp0\php\php.ini-production" "%~dp0\php\php.ini" > Nul
 :EnablePhpSsl
 IniFile.exe %~dp0/php/php.ini [PHP] extension=./ext/php_openssl.dll
 :MovePhpToSystem
-xcopy /e/i/y/h "%~dp0php" "%SystemRoot:~0,3%php" > Nul
+XCopy /e/i/y/h "%~dp0php" "%SystemRoot:~0,3%php" > Nul
 :AddPathForPhpBinary
-Call userpath add %SystemRoot:~0,3%php
+Call Userpath Add %SystemRoot:~0,3%php
 :TestPhpInstall
 php -v
 
@@ -23,14 +26,14 @@ php -r "if (hash_file('SHA384', 'composer/composer-setup.php') !== '669656bab316
 php composer/composer-setup.php --install-dir=%~dp0/composer --quiet
 php -r "unlink('composer/composer-setup.php');"
 :MoveComposerToSystem
-xcopy /e/i/y/h "%~dp0composer" "%SystemRoot:~0,3%composer" > Nul
+XCopy /e/i/y/h "%~dp0composer" "%SystemRoot:~0,3%composer" > Nul
 :AddPathForComposerFiles
-Call userpath add %SystemRoot:~0,3%composer
+Call Userpath Add %SystemRoot:~0,3%composer
 
 ::Symfony
 :InstallSymfony
-mkdir symfony & php -r "readfile('https://symfony.com/installer');" > symfony/symfony
+MkDir symfony & php -r "readfile('https://symfony.com/installer');" > symfony/symfony
 :MoveSymfonyToSystem
-xcopy /e/i/y/h "%~dp0symfony" "%SystemRoot:~0,3%symfony" > Nul
+XCopy /e/i/y/h "%~dp0symfony" "%SystemRoot:~0,3%symfony" > Nul
 :AddPathForSymfonyFile
-Call userpath add %SystemRoot:~0,3%symfony
+Call Userpath Add %SystemRoot:~0,3%symfony

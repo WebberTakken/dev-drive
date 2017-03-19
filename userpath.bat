@@ -60,6 +60,7 @@ For /F "tokens=2*" %%A In ('Reg Query HKCU\Environment\ /v PATH') Do Echo.%%B | 
 Goto Reload
 
 :Reload - Load machine and current user PATH variable for current session
+:Refresh
 Echo Reloading PATH Environment Variable
 Set ErrorLevel=
 Reg Query HKCU\Environment\ /v PATH >Nul 2>Nul
