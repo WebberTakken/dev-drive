@@ -76,7 +76,7 @@ Set Destination    = Shell.NameSpace(DestinationPath)
 WScript.Echo (_
   "unzip.vbs: Extracting ZIP File" & chr(10) & _
   "Source:       " & SourceFile & chr(10) & _
-  "Destination:  " & DestinationPath & chr(10) _
+  "Destination:  " & DestinationPath _
 )
 Destination.CopyHere SourceContents, 2832
 WScript.Echo "Done."
