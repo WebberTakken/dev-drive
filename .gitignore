@@ -1,6 +1,7 @@
 # Ignore everything
-**
+*/**
 
 # Include only specific folders
-!php/
+!php/*
 !composer/
+/php.zip
