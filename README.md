@@ -1,9 +1,15 @@
 # DEV-Drive
-This repository contains scripts that install various dev tools, using a single command
+Automatically install the tools that are needed for development of web applications,
+including creating their respective path variables, using a single command
+
+## Contents
+- PHP (7.1)
+- Composer (latest)
+- Symfony installer (latest)
 
 ## Usage
-1. Clone this folder into any folder, **except directly into your local drive root**.
-2. Then run the following command
+1. Clone repository
+2. Run command
 ```
 $ install
 ```
