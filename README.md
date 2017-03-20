@@ -1,5 +1,5 @@
 # DEV-Drive
-Automatically install the tools that are needed for development of web applications,
+Automatically install tools that are useful for developing web applications,
 including creating their respective path variables, using a single command
 
 ## Contents
