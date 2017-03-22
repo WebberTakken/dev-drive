@@ -1,8 +1,10 @@
 # Ignore everything
-/**/
+/*/**
 
 # Ignore root files
-php.zip
+*.zip
 
-# Include only specific folders
-!composer/composer.bat
+# Include only specific files
+!/composer/composer.bat
+!/symfony/symfony.bat
+
