@@ -37,9 +37,14 @@ IniFile.exe %InstallDir%php/php.ini [PHP] extension=./ext/php_openssl.dll
 Call Userpath Add %InstallDir%php
 
 ::Composer
-:InstallComposer
+:DownloadComposer
 php -r "copy('https://getcomposer.org/installer', 'composer/composer-setup.php');"
-php -r "if (hash_file('SHA384', 'composer/composer-setup.php')!=='669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer corrupt'; unlink('composer/composer-setup.php'); }"
+:CheckComposerIntegrity
+Set ComposerHash='669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410'
+Set ComposerCondition=hash_file('SHA384', 'composer/composer-setup.php')!==%ComposerHash%
+Set ComposerCheck=if(%ComposerCondition%){echo('Installer corrupt');unlink('composer/composer-setup.php');}
+php -r "%ComposerCheck%"
+:SetupComposer
 php composer/composer-setup.php --install-dir=%~dp0/composer --quiet
 php -r "unlink('composer/composer-setup.php');"
 :MoveComposerToSystem
