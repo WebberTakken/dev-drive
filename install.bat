@@ -7,6 +7,7 @@ Set ChocolateyInstall=%InstallDir%chocolatey\
 
 ::SetPermanently
 Setx InstallDir %InstallDir%
+Setx ChocolateyInstall %ChocolateyInstall%
 Setx ChocolateyToolsLocation %InstallDir%
 
 ::Refresh PATH Environment Variable
@@ -35,6 +36,8 @@ choco upgrade php --yes --params "/InstallDir:%InstallDir%php"
 IniFile.exe %InstallDir%php/php.ini [PHP] extension=./ext/php_openssl.dll
 :SetPathIfNoShims
 Call Userpath Add %InstallDir%php
+:VerifyPhpInstall
+php -v
 
 ::Composer
 :DownloadComposer
@@ -51,6 +54,8 @@ php -r "unlink('composer/composer-setup.php');"
 XCopy /e/i/y/h "%~dp0composer" "%InstallDir%composer" > Nul
 :AddPathForComposerFiles
 Call Userpath Add %InstallDir%composer
+:VerifyComposerInstall
+Call composer -V
 
 ::Symfony
 :InstallSymfony
@@ -59,14 +64,9 @@ MkDir symfony & php -r "readfile('https://symfony.com/installer');" > symfony/sy
 XCopy /e/i/y/h "%~dp0symfony" "%InstallDir%symfony" > Nul
 :AddPathForSymfonyFile
 Call Userpath Add %InstallDir%symfony
-
-::VerifyInstallations
-:VerifyPhpInstall
-php -v
-:VerifyComposerInstall
-Call composer -V
 :VerifySymfonyInstall
 Call symfony -V
+
 
 
 
