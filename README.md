@@ -3,9 +3,10 @@ Automatically install tools that are useful for developing web applications,
 including creating their respective path variables, using a single command
 
 ## Contents
-- PHP (7.1)
+- PHP (latest)
 - Composer (latest)
 - Symfony installer (latest)
+- Chocolatey (latest)
 
 ## Usage
 1. Clone repository
