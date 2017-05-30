@@ -3,7 +3,7 @@
 
 # Ignore root files
 *.zip
-/choco.exe
+/choco.*
 
 # Include only specific files
 !/composer/composer.bat

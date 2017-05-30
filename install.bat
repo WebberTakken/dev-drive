@@ -1,4 +1,11 @@
 @Echo Off
+::
+:: File:        install.bat
+::
+:: Description: Automatically installs tools for developers, according to the set configuration
+:: Author:      Webber
+:: License:     MIT
+::
 
 ::Configuration
 Set InstallDir=%SystemRoot:~0,3%dev\
