@@ -74,6 +74,14 @@ Call Userpath Add %InstallDir%symfony
 :VerifySymfonyInstall
 Call symfony -V
 
-
-
+::NodeJs
+:InstallNodeJs
+choco install nodejs --yes -ia "INSTALLDIR=""%InstallDir%node"""
+:UpdateNodeJs
+choco upgrade nodejs --yes -ia "INSTALLDIR=""%InstallDir%node"""
+:AddPathForNodeJsFiles
+Call Userpath Add %InstallDir%node
+:VerifyNodeJsInstall
+Echo | Set /p i=NodeJs & Call node -v
+Echo | Set /p i=NPM & Call npm -v
 
