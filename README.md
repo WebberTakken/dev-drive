@@ -8,17 +8,19 @@ including creating their respective path variables, using a single command
 - Symfony installer
 - Chocolatey
 - Git (Default directory for compatibility reasons)
-- NodeJs  
+- NodeJs
 
-_The latest version will be installed for each application_
+_For each application, the latest version will be installed._
 
 ## Usage
-### Installing and/or updating
+### Installation
 1. Clone repository
 2. Run command
 ```
 $ install
 ```
+### Updating
+Exactly the same steps as in installation (non-breaking).
 
 ## Contributing
 1. Fork it!
