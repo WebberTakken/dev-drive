@@ -9,13 +9,13 @@
 
 ::Configuration
 Set InstallDir=%SystemRoot:~0,3%dev\
-Set ChocolateyToolsLocation = %InstallDir%
+Set ChocolateyToolsLocation=%InstallDir%
 Set ChocolateyInstall=%InstallDir%chocolatey\
 
 ::SetPermanently
-Setx InstallDir %InstallDir%
-Setx ChocolateyInstall %ChocolateyInstall%
-Setx ChocolateyToolsLocation %InstallDir%
+Setx InstallDir %InstallDir% > Nul
+Setx ChocolateyInstall %ChocolateyInstall% > Nul
+Setx ChocolateyToolsLocation %InstallDir% > Nul
 
 ::Refresh PATH Environment Variable
 Call Userpath Refresh > Nul
