@@ -85,3 +85,12 @@ Call Userpath Add %InstallDir%node
 Echo | Set /p i=NodeJs & Call node -v
 Echo | Set /p i=NPM & Call npm -v
 
+::Git
+REM Git and other tools rely on git being in the default installation directory
+:InstallGitInDefaultLocation
+choco install git --yes --params '"/GitAndUnixToolsOnPath /NoAutoCrlf"'
+:UpdateGit
+choco upgrade git --yes --params '"/GitAndUnixToolsOnPath"'
+:VerifyGitInstall
+Call git --version
+

@@ -3,12 +3,17 @@ Automatically install tools that are useful for developing web applications,
 including creating their respective path variables, using a single command
 
 ## Contents
-- PHP (latest)
-- Composer (latest)
-- Symfony installer (latest)
-- Chocolatey (latest)
+- PHP
+- Composer
+- Symfony installer
+- Chocolatey
+- Git (Default directory for compatibility reasons)
+- NodeJs  
+
+_The latest version will be installed for each application_
 
 ## Usage
+### Installing and/or updating
 1. Clone repository
 2. Run command
 ```
